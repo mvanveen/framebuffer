@@ -19,5 +19,6 @@ func Example() {
 	defer fb.Close()
 	fb.Clear(0, 0, 0, 0)
 	fb.WritePixel(200, 100, 255, 0, 0, 0)
+	fmt.PrintLn(fb.WritePixel(200, 100))
 	fmt.Scanln()
 }

@@ -78,15 +78,14 @@ func (fb *Framebuffer) WritePixel(x, y, red, green, blue, alpha int) {
 
 
 // GetPixel gets pixel clor at x, y.
-func GetPixel(fb *framebuffer.Framebuffer, x int, y int) {
+func GetPixel(fb *Framebuffer, x int, y int) []uint8{
     offset := (int(fb.vinfo.Xoffset) +x )*(int(fb.vinfo.Bits_per_pixel)/8) + (int(fb.vinfo.Yoffset)+y)*int(fb.finfo.Line_length)
 
-    blue := fb.data[offset]
-    green := fb.data[offset+1]
-    red := fb.data[offset+2]
-    alpha := fb.data[offset+3]
+    red := uint8(fb.data[offset])
+    green := uint8(fb.data[offset + 1])
+    blue := uint8(fb.data[offset + 2])
 
-    return blue, green, red
+    return []uint8{red, green, blue}
 }
 
 
